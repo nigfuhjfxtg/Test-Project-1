@@ -32,3 +32,8 @@ document.getElementById('signupForm')?.addEventListener('submit', function(e) {
     // توجيه المستخدم إلى الصفحة الرئيسية
     window.location.href = '/home.html';
 });
+// في ملف script.js - إضافة هذا الكود
+document.querySelector('.logout-button')?.addEventListener('click', function() {
+    localStorage.removeItem('token'); // حذف التوكن
+    window.location.href = '/login.html'; // توجيه إلى تسجيل الدخول
+});
