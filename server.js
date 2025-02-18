@@ -14,3 +14,12 @@ app.get('*', (req, res) => {
 app.listen(port, () => {
   console.log(`الخادم يعمل على المنفذ ${port}`);
 });
+const mongoose = require('mongoose');
+
+// الاتصال بقاعدة البيانات
+mongoose.connect(process.env.DB_URI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+})
+.then(() => console.log('✅ تم الاتصال بقاعدة البيانات'))
+.catch(err => console.error('❌ فشل الاتصال:', err));
