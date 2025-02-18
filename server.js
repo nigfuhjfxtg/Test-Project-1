@@ -12,5 +12,7 @@ const DATA_FILE = path.join(__dirname, 'data.json');
 
 app.get('*', (req, res) => { res.sendFile(path.join(__dirname, 'public', 'index.html')); });
 
-app.listen(port, () => { console.log(الخادم يعمل على المنفذ ${port}); });
+app.listen(port, () => { 
+    console.log(`الخادم يعمل على المنفذ ${port}`); 
+});
 
