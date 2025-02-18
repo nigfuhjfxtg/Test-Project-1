@@ -1,23 +1,27 @@
-<!DOCTYPE html>
-<html lang="ar">
+<!DOCTYPE html><html lang="ar">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>الصفحة الرئيسية</title>
-  <link rel="stylesheet" href="/style.css">
-  <!-- تمت إزالة إعادة التوجيه التلقائي لتجنب إعادة تحميل الصفحة باستمرار -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الصفحة الرئيسية</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="container">
-    <h1>مرحبًا بك في موقعنا</h1>
-    <p>يرجى تسجيل الدخول أو إنشاء حساب للمتابعة</p>
-    
-    <div class="buttons">
-      <a href="login.html"><button type="button">تسجيل الدخول</button></a>
-      <a href="signup.html"><button type="button">إنشاء حساب</button></a>
-    </div>
-  </div>
+    <header>
+        <h1>مرحبًا بك في موقعنا</h1>
+        <p>يرجى تسجيل الدخول أو إنشاء حساب للمتابعة</p>
+        <button onclick="window.location.href='login.html'">تسجيل الدخول</button>
+        <button onclick="window.location.href='signup.html'">إنشاء حساب</button>
+    </header><div class="post-container">
+    <h2>أنشئ منشورًا جديدًا</h2>
+    <form id="postForm">
+        <textarea id="postContent" placeholder="اكتب منشورك هنا..." required></textarea>
+        <button type="submit">نشر</button>
+    </form>
+    <h2>آخر المنشورات</h2>
+    <div id="posts"></div>
+</div>
 
-  <script src="/script.js"></script>
+<script src="script.js"></script>
+
 </body>
 </html>
