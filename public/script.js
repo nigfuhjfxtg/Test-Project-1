@@ -37,3 +37,41 @@ document.querySelector('.logout-button')?.addEventListener('click', function() {
     localStorage.removeItem('token'); // حذف التوكن
     window.location.href = '/login.html'; // توجيه إلى تسجيل الدخول
 });
+document.addEventListener("DOMContentLoaded", function() { loadPosts();
+
+document.getElementById("postForm").addEventListener("submit", function(event) {
+    event.preventDefault();
+    addPost();
+});
+
+});
+
+function addPost() { let postContent = document.getElementById("postContent").value.trim(); if (postContent === "") { alert("يرجى كتابة شيء قبل النشر!"); return; }
+
+fetch("/api/posts", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ content: postContent })
+})
+.then(response => response.json())
+.then(data => {
+    document.getElementById("postContent").value = "";
+    loadPosts();
+})
+.catch(error => console.error("خطأ في إرسال البيانات:", error));
+
+}
+
+function loadPosts() { fetch("/api/posts") .then(response => response.json()) .then(posts => { let postList = document.getElementById("postList"); postList.innerHTML = "";
+
+posts.forEach(post => {
+        let postDiv = document.createElement("div");
+        postDiv.className = "post";
+        postDiv.innerText = post.content;
+        postList.appendChild(postDiv);
+    });
+})
+.catch(error => console.error("خطأ في جلب البيانات:", error));
+
+}
+
